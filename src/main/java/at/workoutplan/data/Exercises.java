@@ -112,6 +112,11 @@ public class Exercises {
             .muscleVolume(Muscles.SideDelts, 0.6f)
             .muscleVolume(Muscles.Triceps, 0.5f);
 
+    public static final Exercise FrontRaises = new Exercise("Front Raises")
+            .muscleVolume(Muscles.FrontDelts, 1.0f)
+            .muscleVolume(Muscles.Trapezius, 0.2f)
+            .muscleVolume(Muscles.Forearms, 0.2f);
+
     public static final Exercise DumbbellLateralRaises = new Exercise("Dumbbell Lateral Raises")
             .muscleVolume(Muscles.SideDelts, 1.0f);
 

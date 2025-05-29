@@ -12,7 +12,13 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<Workout> workouts = Workouts.getUpperLowerUpperLowerUpperWorkout();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Are you currently in a diet?\n[y]es / [n]o\n> ");
+        String input = scanner.nextLine().trim().toLowerCase();
+        boolean inDiet = !input.isEmpty() && input.charAt(0) == 'y';
+        scanner.close();
+
+        List<Workout> workouts = Workouts.getUpperLowerUpperLowerUpperWorkout(inDiet);
         Map<Muscle, Float> volumeMap = new HashMap<>();
 
         for (Workout workout : workouts) {
@@ -25,13 +31,13 @@ public class Main {
 
         for (Muscle muscle : Muscles.Muscles) {
             float volume = MathUtils.truncateFloat(volumeMap.getOrDefault(muscle, 0f), 1);
-            float min = muscle.getMinVolume();
-            float max = muscle.getMaxVolume();
+            float min = inDiet ? muscle.getMinVolume() * 0.8f : muscle.getMinVolume();
+            float max = inDiet ? muscle.getMaxVolume() * 0.8f : muscle.getMaxVolume();
 
             String statusEmoji;
-            if (volume < min)
+            if (volume < (int)min)
                 statusEmoji = "⚠";
-            else if (volume > max)
+            else if (volume > (int)max)
                 statusEmoji = "❌";
             else
                 statusEmoji = "✅";

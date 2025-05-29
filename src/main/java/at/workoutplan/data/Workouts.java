@@ -12,7 +12,7 @@ public class Workouts {
                 .exercise(Exercises.PectoralMachine, 3)
                 .exercise(Exercises.PulldownMachine, inDiet ? 2 : 3)
                 .exercise(Exercises.TBarRows, inDiet ? 2 : 3)
-                .exercise(Exercises.DumbbellLateralRaises, inDiet ? 2 : 3)
+                .exercise(Exercises.DumbbellLateralRaises, 3)
                 .exercise(Exercises.WeightedDips, inDiet ? 3 : 4)
                 .exercise(Exercises.InclineDumbbellCurls, 3);
 
